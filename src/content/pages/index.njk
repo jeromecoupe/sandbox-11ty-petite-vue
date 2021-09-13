@@ -1,0 +1,29 @@
+---
+permalink: index.html
+---
+{% extends "layouts/base.njk" %}
+{% block content %}
+  {% raw %}
+  <div v-scope @mounted="init">
+      <form @submit.prevent>
+        <div>
+          <label for="searchfield">Search: </label>
+          <input type="search" id="searchfield" name="q" v-model="q">
+        </div>
+        <div>
+          <label><input type="radio" value="active" name="filter" v-model="status"> Active</label>
+          <label><input type="radio" value="completed" name="filter" v-model="status"> Completed</label>
+        </div>
+      </form>
+      <p>Status: {{ status }}</p>
+      <ul v-if="filteredTodos.length">
+        <li v-for="todo in filteredTodos" :key="todo.id">
+          <article class="c-todo" v-bind:class="{ 'is-completed':todo.completed }">
+            <h2 class="c-todo__title">{{ todo.title }}</h2>
+          </article>
+        </li>
+      </ul>
+      <p v-else>no todos found</p>
+  </div>
+  {% endraw %}
+{% endblock %}
