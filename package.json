@@ -16,6 +16,7 @@
     "watch:scripts": "chokidar \"./src/assets/js/**/*\" -c \"npm run scripts:dev\"",
     "watch:eleventy": "npx eleventy --watch",
     "watch": "npm-run-all --parallel serve watch:*",
+    "dev": "npm run watch",
     "build": "npm-run-all clear --parallel eleventy scripts:prod styles:prod"
   },
   "keywords": [],
