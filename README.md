@@ -6,4 +6,4 @@ Static API made with 11ty at build time, consumed by petite-vue.
 
 - `npm install`
 - `npm run build`
-- `npm run watch` ou `npm run dev`
+- `npm run watch` or `npm run dev`
