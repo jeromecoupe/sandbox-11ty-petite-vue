@@ -1,5 +1,4 @@
 import { createApp } from "petite-vue";
-import axios from "axios";
 
 createApp({
   todos: [],
@@ -7,7 +6,8 @@ createApp({
   q: "",
   async init() {
     try {
-      const { data } = await axios.get("/api/todos.json");
+      const response = await fetch("/api/todos.json");
+      const data = await response.json();
       this.todos = data;
     } catch (error) {
       console.log(error);
